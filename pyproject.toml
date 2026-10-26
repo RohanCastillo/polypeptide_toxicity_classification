@@ -1,0 +1,42 @@
+[project]
+name = "polypeptide-toxicity-classification"
+version = "0.1.0"
+description = "Binary classification of peptides as toxic or non-toxic from physicochemical, sequence-based and protein language model features"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    # data handling
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "openpyxl>=3.1",      # pandas.read_excel backend for physiochemical_attributes.xlsx
+    "biopython>=1.83",    # SeqIO, FASTA parsing
+    # classical ML and plotting
+    "scikit-learn>=1.5",
+    "matplotlib>=3.8",
+    # deep learning
+    "torch>=2.4",
+    "torchmetrics>=1.4",
+    # protein language model
+    "transformers>=4.44",
+    "tqdm>=4.66",
+    # notebook
+    "ipykernel>=6.29",
+    "jupyterlab>=4.2",
+]
+
+# Torch is pinned to the CPU wheels below. They are a far smaller download and this
+# machine has no NVIDIA GPU. The notebook code selects the device at runtime with
+# `'cuda' if torch.cuda.is_available() else 'cpu'`, so it stays correct either way;
+# on CPU wheels it simply always reports cpu.
+#
+# To use a GPU, delete the [tool.uv.sources] and [[tool.uv.index]] blocks below and
+# run `uv sync` again to get the default CUDA build from PyPI.
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

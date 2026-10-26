@@ -1,0 +1,26 @@
+# uv / Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# HuggingFace model cache
+.cache/
+
+# OS
+.DS_Store
+
+# Private configuration and course datasets
+.env
+.env.*
+data/
+
+# Batch run logs
+results/section1-*.log
+
+# Local project instructions and history
+CLAUDE.md
+AGENTS.md
+CHANGELOG.md
