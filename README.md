@@ -14,10 +14,9 @@ the residue sequence itself, and protein language model embeddings.
 | 1 | Physicochemical | SVM | 0.8970 | 0.7625 | 0.9504 | 0.7404 |
 | 3 | ProtBert | KNN | – | – | – | – |
 
-Section 4 of the notebook discusses these. Two things to be aware of when reading them:
-the PLM section currently evaluates on an 80/20 split of the training data rather than
-the independent test set, so its numbers are not directly comparable; and every model is
-noticeably weaker on the toxic class than the non-toxic one.
+All models are scored on the independent test set. The ProtBert KNN has not been run
+yet. Every model is weaker on the toxic class: sensitivity trails specificity by 13-18
+points, as expected with a 71/29 class split.
 
 ## Project structure
 
