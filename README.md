@@ -4,7 +4,7 @@ Machine learning project for the group of Rohan, Lasaro, and Don.
 
 Binary classification of peptides as **toxic (label 1)** or **non-toxic (label 0)** from
 sequence alone, comparing three feature representations: physicochemical properties,
-sequence-based composition and bigrams, and protein language model embeddings.
+sequence-based composition and the residue sequence, and protein language model embeddings.
 
 ## Project structure
 
@@ -116,7 +116,7 @@ CPU wheels it just always reports `cpu`. To use a GPU, delete the `[tool.uv.sour
 
 | Section | Representation | Model | Accuracy | Sensitivity | Specificity | MCC |
 |---|---|---|---|---|---|---|
-| 2 | Bigram matrix | CNN | 0.92 | – | – | 0.7998 |
+| 2 | Residue sequence | 1D CNN | 0.9227 | 0.8187 | 0.9640 | 0.8065 |
 | 1 | Physicochemical | AdaBoost | 0.9041 | 0.8125 | 0.9404 | 0.7618 |
 | 1 | Physicochemical | Random Forest | 0.9005 | 0.7781 | 0.9491 | 0.7501 |
 | 1 | Physicochemical | SVM | 0.8970 | 0.7625 | 0.9504 | 0.7404 |
